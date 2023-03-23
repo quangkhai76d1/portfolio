@@ -1,3 +1,5 @@
+import Header from '@/modules/header';
+import PageManager from '@/modules/page-manager';
 import Head from 'next/head';
 
 export default function Home() {
@@ -9,11 +11,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div>
-          <h2 className="text-main ">Quang Khải</h2>
-        </div>
-      </main>
+      <Header />
+      <PageManager />
     </>
   );
 }

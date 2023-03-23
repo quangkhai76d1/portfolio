@@ -15,19 +15,9 @@ module.exports = {
         '4xl': '14866px',
         '5xl': '1870px',
       },
-      fontSize: {
-        xs: ['1.2rem', '1.8rem'],
-        sm: ['1.4rem', '2.1rem'],
-        base: ['1.6rem', '2.6rem'],
-        md: ['1.8rem', '2.9rem'],
-        lg: ['2rem', '3.2rem'],
-        xl: ['2.4rem', '3.9rem'],
-        '2xl': ['3.2rem', '3.8rem'],
-        '3xl': ['4.4rem', '6.6rem'],
-        '4xl': ['5.2rem', '7.8rem'],
-      },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        agustina: ['Agustina-regular', 'sans-serif'],
       },
       colors: {
         main: '#27dcda',
