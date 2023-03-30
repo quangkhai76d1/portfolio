@@ -4,7 +4,7 @@ export interface IPageManagerProps {}
 
 export default function PageManager(props: IPageManagerProps) {
   return (
-    <div>
+    <div className="w-full h-full">
       <HomePage />
     </div>
   );
