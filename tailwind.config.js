@@ -34,7 +34,7 @@ module.exports = {
         'secondary-05': '#6b9898',
         'secondary-10': '#61a2a1',
         'secondary-20': '#4eb5b4',
-        'secondary-40': '#3ac9c7',
+        'secondary-30': '#3ac9c7',
         'secondary-40': '#27dcda',
         'secondary-50': '#1de6e3',
         'secondary-60': '#14efed',
@@ -51,6 +51,9 @@ module.exports = {
       },
       transitionTimingFunction: {
         DEFAULT: 'cubic-bezier(0, 0, 0.2, 1)', //Ease out
+      },
+      backgroundImage: {
+        'header-line': 'linear-gradient(to left, #484848 0, #484848 900px, #48484800);',
       },
     },
   },

@@ -1,4 +1,12 @@
 @tailwind base;
+@layer base {
+  body {
+    @apply text-base font-poppins h-full tracking-wide;
+    > div {
+      @apply h-full overflow-hidden;
+    }
+  }
+}
 
 @tailwind components;
 @layer components {
