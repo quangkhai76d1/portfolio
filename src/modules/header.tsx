@@ -42,7 +42,7 @@ export default function Header({headerNavs}: IHeaderProps) {
       initial={{opacity: 0.2}}
       animate={{opacity: 1, transition: createTransition(0, 1)}}
       className="fixed top-0 left-0 z-30 flex items-center w-full px-4 pt-5 pb-4 md:pl-32 md:pr-0">
-      <div className="flex items-center" onClick={() => handleChangePage('home')}>
+      <div className="flex items-center cursor-pointer" onClick={() => handleChangePage('home')}>
         <span className="font-serif text-xl text-gray-400 md:text-2xl"> &lt; </span>
         <span className="px-2 text-3xl tracking-wide md:text-4xl font-agustina text-main"> QuangKhai </span>
         <span className="font-serif text-xl text-gray-400 md:text-2xl"> /&gt; </span>
