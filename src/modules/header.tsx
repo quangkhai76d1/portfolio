@@ -5,6 +5,7 @@ import {useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {pageManagerSelector, setScrolling} from '../store/globalSlice';
 import {createTransition} from '../utils/baseAnim';
+import useMediaQuery, {TABLET_DESKTOP_QUERY} from '@/hook/useMediaQuery';
 
 interface Nav {
   id: number;
@@ -22,14 +23,18 @@ export default function Header({headerNavs}: IHeaderProps) {
   const dispatch = useDispatch();
   const timeOutRef = useRef(0);
 
+  const isDesktop = useMediaQuery(TABLET_DESKTOP_QUERY);
+
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const handleChangePage = (tag: string) => {
-    if (!scrolling) {
-      window.clearTimeout(timeOutRef.current);
-      dispatch(setScrolling(true));
-      timeOutRef.current = window.setTimeout(() => dispatch(setScrolling(false)), ANIM_DURATION + 300);
-      router.push(`/#${tag}`, undefined, {shallow: true});
+    if (isDesktop) {
+      if (!scrolling) {
+        window.clearTimeout(timeOutRef.current);
+        dispatch(setScrolling(true));
+        timeOutRef.current = window.setTimeout(() => dispatch(setScrolling(false)), ANIM_DURATION + 300);
+        router.push(`/#${tag}`, undefined, {shallow: true});
+      }
     }
   };
 
@@ -102,11 +107,11 @@ export default function Header({headerNavs}: IHeaderProps) {
       <AnimatePresence>
         {toggleMenu && (
           <motion.div
-            initial={{backgroundColor: 'currentcolor', translateX: '-100%'}}
-            animate={{backgroundColor: '#131315', translateX: toggleMenu ? 0 : '-100%'}}
-            exit={{translateX: '-100%'}}
+            initial={{backgroundColor: 'currentcolor', translateY: '-100%'}}
+            animate={{backgroundColor: '#131315', translateY: toggleMenu ? 0 : '-100%'}}
+            exit={{translateY: '-100%'}}
             transition={{duration: 0.6}}
-            className="absolute left-0 w-full h-screen max-w-[31.25rem] px-3 py-8 top-[4.5rem] cursor-pointer md:hidden">
+            className="absolute left-0 w-full h-screen max-h-[24rem] px-3 py-8 top-[4rem] cursor-pointer md:hidden">
             {headerNavs.map((nav) => {
               const active = selectedPage === nav.id;
               return (

@@ -11,7 +11,7 @@ interface GlobalState {
 
 const initialState: GlobalState = {
   scrolling: false,
-  selectedPage: 1,
+  selectedPage: 0,
 };
 
 export const globalSlice = createSlice({
