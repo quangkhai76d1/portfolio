@@ -56,6 +56,7 @@ module.exports = {
         'header-line': 'linear-gradient(to left, #484848 0, #484848 900px, #48484800);',
         'title-home':
           'linear-gradient(90deg, rgba(194,193,201,1) 0%, rgba(39,220,218,0.9715676229508197) 40%, rgba(6,198,237,1) 100%);',
+        'exp-bg': 'linear-gradient(0deg, rgba(71,189,45,1) 0%, rgba(27,149,186,1) 100%)',
       },
     },
   },

@@ -17,9 +17,9 @@ export interface experienceItemProps {
 export default function ExperienceItem({title, srcLogo, position, time, description}: experienceItemProps) {
   return (
     <div className="flex flex-col items-center border-[0.0625rem] border-solid border-gray-500 rounded-lg shadow-md shadow-gray-500 outline-0 md:flex-1 lg:min-h-[30.375rem] md:min-h-[26.375rem] min-h-[23.375rem]">
-      <div className="relative w-full bg-other h-[8rem] flex-center rounded-tr-lg rounded-tl-lg">
+      <div className="relative w-full bg-exp-bg h-[8rem] flex-center rounded-tr-lg rounded-tl-lg">
         <span className="text-center">
-          <h3 className="text-2xl font-semibold text-white">{title}</h3>
+          <h3 className="text-2xl font-semibold text-white lg:text-[1.75rem]">{title}</h3>
         </span>
         <div className="absolute left-[50%] translate-x-[-50%] bottom-[-32.03125%] p-4 bg-slate-100 rounded-full">
           <Image src={srcLogo} alt={`Logo ${title}`} className="" quality={100} width={50} height={50} />

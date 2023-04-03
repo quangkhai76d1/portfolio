@@ -94,7 +94,7 @@ export default function Experiences() {
         }
       }
       className="relative z-10 w-full h-full px-6 pt-16 md:px-16 md:flex md:flex-col md:justify-center">
-      <h1 className="mb-6 text-3xl font-bold text-center text-white md:mb-8 md:text-4xl md:text-left">
+      <h1 className="mb-6 text-3xl font-bold text-center text-white md:mb-8 md:text-4xl md:text-left lg:text-[2.815rem]">
         Work <span className="text-main">Experiences</span>
       </h1>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 md:gap-8 md:grid-cols-2">
