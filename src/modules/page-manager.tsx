@@ -6,6 +6,7 @@ import {motion, useAnimationControls} from 'framer-motion';
 import {useWindowSize} from '@/hook/useWindowSize';
 import {useEffect} from 'react';
 import useMediaQuery, {TABLET_DESKTOP_QUERY} from '@/hook/useMediaQuery';
+import Experiences from '@/components/experiences';
 
 export interface PageProps {
   id: number;
@@ -40,9 +41,10 @@ export default function PageManager() {
         }
       }
       animate={controls}
-      className="md:h-full md:w-full">
+      className="md:w-full md:h-full">
       <HomePage />
       <Skill />
+      <Experiences />
     </motion.div>
   );
 }

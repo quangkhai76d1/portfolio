@@ -69,7 +69,7 @@ export default function Skill() {
           transition: createTransition(),
         }
       }
-      className="relative pt-[4rem] md:pt-4 px-6 md:px-16 flex flex-col-reverse md:flex-row items-center md:w-full md:h-full">
+      className="relative pt-[3rem] md:pt-8 px-6 xl:px-16 md:px-8 flex flex-col-reverse md:flex-row items-center md:w-full md:h-full">
       <motion.div
         initial={
           isDesktop && {
