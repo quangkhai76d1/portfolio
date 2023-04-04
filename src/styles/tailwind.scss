@@ -6,7 +6,7 @@
   body {
     @apply text-base font-poppins md:h-full tracking-wide;
     > div {
-      @apply md:h-full md:overflow-hidden;
+      @apply md:h-full lg:overflow-hidden overflow-y-auto;
     }
   }
 }

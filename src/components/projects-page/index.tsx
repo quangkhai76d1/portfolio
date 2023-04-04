@@ -88,15 +88,19 @@ export default function Projects() {
       }
       className="relative z-10 w-full h-full px-6 pt-10 md:flex-col md:flex-center">
       <motion.div
-        initial={{
-          translateY: '100vh',
-          opacity: 0,
-        }}
-        animate={{
-          opacity,
-          translateY: selectedPage >= pageId ? 0 : '100vh',
-          transition: createTransition(selectedPage >= pageId ? 0 : 0.4),
-        }}
+        initial={
+          isDesktop && {
+            translateY: '100vh',
+            opacity: 0,
+          }
+        }
+        animate={
+          isDesktop && {
+            opacity,
+            translateY: selectedPage >= pageId ? 0 : '100vh',
+            transition: createTransition(selectedPage >= pageId ? 0 : 0.4),
+          }
+        }
         className="w-full mb-3 text-center lg:text-start lg:mb-5">
         <h1 className="pb-3 text-3xl font-bold leading-10 text-main lg:text-5xl">Projects</h1>
         <h3 className="text-sm font-semibold text-white lg:text-lg">

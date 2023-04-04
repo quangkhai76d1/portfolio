@@ -95,15 +95,19 @@ export default function Experiences() {
       }
       className="relative z-10 w-full h-full px-6 pt-16 md:px-16 md:flex md:flex-col md:justify-center">
       <motion.h1
-        initial={{
-          translateY: '100vh',
-          opacity: 0,
-        }}
-        animate={{
-          opacity,
-          translateY: selectedPage >= pageId ? 0 : '100vh',
-          transition: createTransition(selectedPage >= pageId ? 0 : 0.4),
-        }}
+        initial={
+          isDesktop && {
+            translateY: '100vh',
+            opacity: 0,
+          }
+        }
+        animate={
+          isDesktop && {
+            opacity,
+            translateY: selectedPage >= pageId ? 0 : '100vh',
+            transition: createTransition(selectedPage >= pageId ? 0 : 0.4),
+          }
+        }
         className="mb-6 text-3xl font-bold text-center text-white md:mb-8 md:text-4xl md:text-left lg:text-[2.815rem]">
         Work <span className="text-main">Experiences</span>
       </motion.h1>
