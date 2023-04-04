@@ -4,3 +4,7 @@ export const URL_INSTAGRAM = 'https://www.instagram.com/quangkhai07/';
 export const URL_LINKEDIN = 'https://www.linkedin.com/in/quangkhai76d1/';
 export const URL_GITHUB = 'https://github.com/quangkhai76d1';
 export const URL_EMAIL = 'phanquangkhai07@gmail.com';
+export const DASHBOARD_URL = 'https://dashboard-beta.aioz.storage';
+export const LANDING_PAGE_URL = 'https://beta.aioz.storage';
+export const AIOZ_NETWORK_URL = 'https://aioz.network';
+export const PORTFOLIO_URL = 'https://portfolio-quangkhai76d1.vercel.app';

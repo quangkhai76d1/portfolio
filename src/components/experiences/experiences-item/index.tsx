@@ -16,7 +16,7 @@ export interface experienceItemProps {
 
 export default function ExperienceItem({title, srcLogo, position, time, description}: experienceItemProps) {
   return (
-    <div className="flex flex-col items-center border-[0.0625rem] border-solid border-gray-500 rounded-lg shadow-md shadow-gray-500 outline-0 md:flex-1 lg:min-h-[30.375rem] md:min-h-[26.375rem] min-h-[23.375rem]">
+    <div className="flex flex-col items-center border-[0.0625rem] border-solid border-gray-500 rounded-lg shadow-md shadow-gray-500 outline-0 md:flex-1 lg:min-h-[30.375rem] md:min-h-[27.625rem] min-h-[25.625rem]">
       <div className="relative w-full bg-exp-bg h-[8rem] flex-center rounded-tr-lg rounded-tl-lg">
         <span className="text-center">
           <h3 className="text-2xl font-semibold text-white lg:text-[1.75rem]">{title}</h3>

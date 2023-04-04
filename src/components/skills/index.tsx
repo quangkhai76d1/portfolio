@@ -85,7 +85,7 @@ export default function Skill() {
           }
         }
         className="flex justify-center pt-12 md:flex-1 md:items-center">
-        <Image src={'/skills/Desk.gif'} width={widthImg} height={heightImg} quality={100} alt="Image Skills" />
+        <Image priority src={'/skills/Desk.gif'} width={widthImg} height={heightImg} quality={100} alt="Image Skills" />
       </motion.div>
 
       <div className="flex flex-col items-center gap-4 text-white md:flex-1 md:p-4">

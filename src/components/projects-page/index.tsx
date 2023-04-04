@@ -1,4 +1,4 @@
-import {ANIM_DURATION} from '@/config/constants';
+import {ANIM_DURATION, LANDING_PAGE_URL, PORTFOLIO_URL} from '@/config/constants';
 import {useListenPageChange} from '@/hook/useListenPageChange';
 import useMediaQuery, {TABLET_DESKTOP_QUERY} from '@/hook/useMediaQuery';
 import {nextPage, prevPage, selectedPageSelector, setScrolling} from '@/store/globalSlice';
@@ -6,56 +6,49 @@ import {createTransition} from '@/utils/baseAnim';
 import {motion} from 'framer-motion';
 import {useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import ExperienceItem from './experiences-item';
+import {AIOZ_NETWORK_URL, DASHBOARD_URL} from '../../config/constants';
+import ProjectItem from './project-item';
 
-const experiences = [
+export interface IProjectsProps {}
+
+const projects = [
   {
-    id: 1,
-    title: 'The Green Market',
-    srcLogo: '/experiences/green.png',
-    position: 'Front End Developer Internship',
-    time: 'September 2021 - November 2021',
-    description: {
-      title: `Learn some languages and joined some projects to practice.`,
-      desc1: 'Learning HTML, CSS, JavaScript, ReactJs...',
-      desc2: 'Joined project for skills improvement. ',
-    },
+    title: 'AIOZ W3S Langding Page',
+    url: '/projects/landing-page.png',
+    desc: 'AIOZ W3S Langding Page is a website that introduces an overview and the superior features of AIOZ W3S Dashboard',
+    text: 'Visit Website(Updating)',
+    href: LANDING_PAGE_URL,
   },
   {
-    id: 2,
-    title: 'AIOZ NetWork',
-    srcLogo: '/experiences/aioz-network-logo.png',
-    position: 'Front End Developer',
-    time: 'July 2022 - Now',
-    description: {
-      title: `Keep learning more to improve skills
-    and joined some projects.`,
-      desc1: 'Learn NextJs, Typescript,...',
-      desc2: 'Take responsibility some projects in AIOZ Dashboard W3S, AIOZ Network Landing Page,AIOZ W3S Landing Page,...',
-    },
+    title: 'AIOZ W3S Dashboard',
+    url: '/projects/dashboard.png',
+    desc: 'AIOZ Web3 Storage Disrupting Cloud Storage Industry with Blockchain Technology powered by AIOZ Network',
+    text: 'Visit Website(Updating)',
+    href: DASHBOARD_URL,
   },
   {
-    id: 3,
-    title: 'Freelancer',
-    srcLogo: '/experiences/freelancer-icon.svg',
-    position: 'Freelance',
-    time: 'Flexible',
-    description: {
-      title: 'Working with my friends together.',
-      desc1: 'Convert HTML, CSS to modern UI.',
-      desc2: 'Self-study by doing personal projects.',
-    },
+    title: 'AIOZ Network',
+    url: '/projects/aioz-network.png',
+    desc: 'AIOZ Network utilizes a decentralized model to share bandwidth and storage among users, creating a decentralized environment for content exchange.',
+    text: 'Visit Website',
+    href: AIOZ_NETWORK_URL,
+  },
+  {
+    title: 'My Portfolio',
+    url: '/projects/portfolio.png',
+    desc: 'My Portfolio is a website introducing myself, my work experience, and contact information to everyone.',
+    text: 'Visit Website(Updating)',
+    href: PORTFOLIO_URL,
   },
 ];
 
-export default function Experiences() {
-  const pageId = 2;
+export default function Projects() {
+  const pageId = 3;
   const selectedPage = useSelector(selectedPageSelector);
   const dispatch = useDispatch();
 
   const opacity = selectedPage === pageId ? 1 : 0;
   const timeOutRef = useRef(0);
-
   const isDesktop = useMediaQuery(TABLET_DESKTOP_QUERY);
 
   useListenPageChange(
@@ -93,8 +86,8 @@ export default function Experiences() {
           transition: createTransition(),
         }
       }
-      className="relative z-10 w-full h-full px-6 pt-16 md:px-16 md:flex md:flex-col md:justify-center">
-      <motion.h1
+      className="relative z-10 w-full h-full px-6 pt-10 md:flex-col md:flex-center">
+      <motion.div
         initial={{
           translateY: '100vh',
           opacity: 0,
@@ -104,11 +97,15 @@ export default function Experiences() {
           translateY: selectedPage >= pageId ? 0 : '100vh',
           transition: createTransition(selectedPage >= pageId ? 0 : 0.4),
         }}
-        className="mb-6 text-3xl font-bold text-center text-white md:mb-8 md:text-4xl md:text-left lg:text-[2.815rem]">
-        Work <span className="text-main">Experiences</span>
-      </motion.h1>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 md:gap-8 md:grid-cols-2">
-        {experiences.map((exp, index) => (
+        className="w-full mb-3 text-center lg:text-start lg:mb-5">
+        <h1 className="pb-3 text-3xl font-bold leading-10 text-main lg:text-5xl">Projects</h1>
+        <h3 className="text-sm font-semibold text-white lg:text-lg">
+          Some products of the company that I have contributed to developing their technology
+        </h3>
+      </motion.div>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
+        {projects.map((project, index) => (
           <motion.div
             initial={
               isDesktop && {
@@ -120,11 +117,11 @@ export default function Experiences() {
               isDesktop && {
                 opacity,
                 translateY: selectedPage >= pageId ? 0 : '120vh',
-                transition: createTransition(0.2 + index / 3),
+                transition: createTransition(0.2 + index / 4),
               }
             }
             key={index}>
-            <ExperienceItem {...exp} />
+            <ProjectItem {...project} />
           </motion.div>
         ))}
       </div>
