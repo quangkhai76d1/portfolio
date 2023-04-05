@@ -41,6 +41,6 @@ function useMediaQuery(query: string): boolean {
   return matches;
 }
 
-export const TABLET_DESKTOP_QUERY = '(min-width: 768px)';
+export const TABLET_DESKTOP_QUERY = '(min-width: 1024px)';
 
 export default useMediaQuery;

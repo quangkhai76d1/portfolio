@@ -42,7 +42,7 @@ export default function PageManager() {
         }
       }
       animate={controls}
-      className="md:w-full md:h-full">
+      className="w-full h-full">
       <HomePage />
       <Skill />
       <Experiences />

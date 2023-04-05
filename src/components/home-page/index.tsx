@@ -68,7 +68,7 @@ export default function HomePage() {
       </div>
       <div className="w-full h-full flex-center">
         <motion.div className="flex flex-col items-center md:flex-row md:flex-1">
-          <div className="flex flex-col items-center flex-1 gap-3 mb-8 text-white md:gap-4 md:items-start">
+          <div className="flex flex-col items-center flex-1 gap-3 mb-12 text-white md:gap-4 md:items-start">
             <motion.p
               initial={
                 isDesktop && {
@@ -198,10 +198,14 @@ export default function HomePage() {
               alt="home background"
               width={widthImg}
               height={heightImg}
-              className="z-10"
+              className="z-20"
             />
             <div
-              className="absolute bg-title-home  bottom-0 rounded-tr-full  rounded-tl-full z-5 md:right-30
+              className=" shadow-lg shadow-gray-300 absolute bg-title-home  bottom-0 rounded-tr-full  rounded-tl-full z-10
+             md:w-[21.875rem] md:h-[29rem] w-[15.625rem] h-[22rem]"
+            />
+            <div
+              className="absolute bg-transparent border-gray-300 border shadow-lg shadow-gray-300 bottom-[0.8125rem] right-6  md:bottom-10 rounded-tr-full  rounded-tl-full z-5 md:right-[9rem]
              md:w-[21.875rem] md:h-[29rem] w-[15.625rem] h-[22rem]"
             />
           </motion.div>
