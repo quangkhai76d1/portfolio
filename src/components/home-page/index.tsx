@@ -14,6 +14,7 @@ import {FaFacebook, FaGithub, FaInstagram, FaLinkedin} from 'react-icons/fa';
 import {useDispatch, useSelector} from 'react-redux';
 import {URL_FACEBOOK, URL_GITHUB, URL_INSTAGRAM, URL_LINKEDIN} from '../../config/constants';
 import {createTransition} from '../../utils/baseAnim';
+import {Cursor, useTypewriter} from 'react-simple-typewriter';
 
 export default function HomePage() {
   const iconHome = 'duration-300 cursor-pointer hover:text-secondary-20';
@@ -31,6 +32,12 @@ export default function HomePage() {
   const [scale, setScale] = useState(1);
   const [widthImg, setWidthImg] = useState(350);
   const [heightImg, setHeightImg] = useState(400);
+
+  const [text, count] = useTypewriter({
+    words: [`Hi! I am Quang Khai Frontend Developer`],
+    loop: true,
+    delaySpeed: 2000,
+  });
 
   useEffect(() => {
     if (isDesktop) {
@@ -101,8 +108,11 @@ export default function HomePage() {
                   transition: createTransition(0.075),
                 }
               }
-              className="w-[21rem] text-3xl font-bold tracking-wide md:text-[3.25rem] md:leading-[4rem] md:w-full">
-              Hi! I am <span className="text-main">Quang Khai</span> Frontend Developer
+              className="text-main w-[21rem] text-3xl font-bold tracking-wide md:text-[3.25rem] md:leading-[4rem] md:w-full">
+              {text}
+              {/* Hi! I am <span className="text-main">Quang Khai</span> Frontend Developer */}
+
+              <Cursor cursorColor="#f2f2f2" />
             </motion.p>
 
             <motion.p
