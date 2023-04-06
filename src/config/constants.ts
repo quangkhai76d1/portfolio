@@ -8,3 +8,4 @@ export const DASHBOARD_URL = 'https://dashboard-beta.aioz.storage';
 export const LANDING_PAGE_URL = 'https://beta.aioz.storage';
 export const AIOZ_NETWORK_URL = 'https://aioz.network';
 export const PORTFOLIO_URL = 'https://portfolio-quangkhai76d1.vercel.app';
+export const USER_ID_KEY = 'nlIpbZkAxa4Ew1ZA_';

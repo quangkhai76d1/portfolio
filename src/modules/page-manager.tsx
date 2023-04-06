@@ -8,6 +8,7 @@ import {useEffect} from 'react';
 import useMediaQuery, {TABLET_DESKTOP_QUERY} from '@/hook/useMediaQuery';
 import Experiences from '@/components/experiences';
 import Projects from '@/components/projects-page';
+import Contact from '@/components/contact';
 
 export interface PageProps {
   id: number;
@@ -47,6 +48,7 @@ export default function PageManager() {
       <Skill />
       <Experiences />
       <Projects />
+      <Contact />
     </motion.div>
   );
 }

@@ -1,5 +1,5 @@
 import cx from 'classnames';
-
+import {MouseEvent} from 'react';
 interface ButtonProps {
   kind?: 'outlined' | 'solid';
   className?: string;
@@ -7,16 +7,18 @@ interface ButtonProps {
   icon?: string;
   disabled?: boolean;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-const Button = ({className, text, icon, disabled, onClick, kind = 'solid'}: ButtonProps) => {
+const Button = ({type, className, text, icon, disabled, onClick, kind = 'solid'}: ButtonProps) => {
   const baseCls =
-    'flex justify-center items-center gap-5  px-[1rem] py-[0.625rem] rounded-[0.75rem] text-base leading-[1.125rem]';
+    'flex justify-center items-center gap-5  px-[1rem] py-[0.75rem] rounded-[0.75rem] text-base leading-[1.125rem] ';
   const outlinedCls = 'text-main border border-main';
-  const solidCls = 'text-primary-05 bg-main';
+  const solidCls = 'text-primary-05 bg-main hover:bg-secondary-20';
 
   return (
     <button
+      type={type}
       onClick={onClick}
       disabled={disabled}
       aria-label={text}

@@ -1,13 +1,12 @@
+import Loader from '@/common/loading';
+import useMediaQuery, {TABLET_DESKTOP_QUERY} from '@/hook/useMediaQuery';
 import Header from '@/modules/header';
 import PageManager from '@/modules/page-manager';
 import {selectedPageSelector, setPage} from '@/store/globalSlice';
 import Head from 'next/head';
 import {useRouter} from 'next/router';
-import {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {useSelector} from 'react-redux';
-import useMediaQuery, {TABLET_DESKTOP_QUERY} from '@/hook/useMediaQuery';
-import Loader from '@/common/loading';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 const HeaderNavs = [
   {id: 0, name: 'Home', tag: 'home'},
@@ -53,7 +52,7 @@ export default function Home() {
         if (path.startsWith('/#')) {
           const tag = path.slice(2);
           const nav = HeaderNavs.find((item) => item.tag === tag);
-          console.log(nav);
+
           if (nav) {
             dispatch(setPage(nav.id));
           }

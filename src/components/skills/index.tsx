@@ -6,7 +6,7 @@ import {nextPage, prevPage, selectedPageSelector, setScrolling} from '@/store/gl
 import {createTransition} from '@/utils/baseAnim';
 import {motion} from 'framer-motion';
 import Image from 'next/image';
-import {useEffect, useRef, useState} from 'react';
+import {useRef} from 'react';
 import {AiTwotoneThunderbolt} from 'react-icons/ai';
 import {FaDatabase, FaGithub, FaGitlab, FaNode, FaSass} from 'react-icons/fa';
 import {RiReactjsFill} from 'react-icons/ri';
@@ -17,9 +17,6 @@ import {useDispatch, useSelector} from 'react-redux';
 export default function Skill() {
   const pageId = 1;
   const isDesktop = useMediaQuery(TABLET_DESKTOP_QUERY);
-
-  const [widthImg, setWidthImg] = useState(400);
-  const [heightImg, setHeightImg] = useState(350);
 
   const selectedPage = useSelector(selectedPageSelector);
   const dispatch = useDispatch();
@@ -50,12 +47,6 @@ export default function Skill() {
     }
   );
 
-  useEffect(() => {
-    if (isDesktop) {
-      setWidthImg(600);
-      setHeightImg(550);
-    }
-  }, [isDesktop]);
   return (
     <motion.section
       initial={
@@ -84,8 +75,8 @@ export default function Skill() {
             transition: createTransition(0.3),
           }
         }
-        className="flex justify-center pt-12 md:flex-1 md:items-center">
-        <Image priority src={'/skills/Desk.gif'} width={widthImg} height={heightImg} quality={100} alt="Image Skills" />
+        className="flex justify-center pt-12 md:flex-1 md:items-center max-w-[37.5rem]">
+        <Image priority src={'/skills/Desk.gif'} quality={100} alt="Image Skills" width={600} height={400} />
       </motion.div>
 
       <div className="flex flex-col items-center gap-4 text-white md:flex-1 md:p-4">

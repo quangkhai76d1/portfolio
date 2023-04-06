@@ -15,17 +15,19 @@ import {useDispatch, useSelector} from 'react-redux';
 import {URL_FACEBOOK, URL_GITHUB, URL_INSTAGRAM, URL_LINKEDIN} from '../../config/constants';
 import {createTransition} from '../../utils/baseAnim';
 import {Cursor, useTypewriter} from 'react-simple-typewriter';
+import {scrollingSelector} from '../../store/globalSlice';
+import {useRouter} from 'next/router';
 
 export default function HomePage() {
   const iconHome = 'duration-300 cursor-pointer hover:text-secondary-20';
 
   const pageId = 0;
   const selectedPage = useSelector(selectedPageSelector);
+  const scrolling = useSelector(scrollingSelector);
   const dispatch = useDispatch();
   const containerRef = useRef<HTMLDivElement>(null);
   const transition = createTransition();
   const opacity = selectedPage === pageId ? 1 : 0;
-  const isInView = useInView(containerRef, {amount: 'all'});
 
   const isDesktop = useMediaQuery(TABLET_DESKTOP_QUERY);
 
@@ -33,7 +35,22 @@ export default function HomePage() {
   const [widthImg, setWidthImg] = useState(350);
   const [heightImg, setHeightImg] = useState(400);
 
-  const [text, count] = useTypewriter({
+  const timeOutRef = useRef(0);
+
+  const router = useRouter();
+
+  const handleChangePage = (tag: string) => {
+    if (isDesktop) {
+      if (!scrolling) {
+        window.clearTimeout(timeOutRef.current);
+        dispatch(setScrolling(true));
+        timeOutRef.current = window.setTimeout(() => dispatch(setScrolling(false)), ANIM_DURATION + 300);
+        router.push(`/#${tag}`, undefined, {shallow: true});
+      }
+    }
+  };
+
+  const [text] = useTypewriter({
     words: [`Hi! I am Quang Khai Frontend Developer`],
     loop: true,
     delaySpeed: 2000,
@@ -158,8 +175,9 @@ export default function HomePage() {
               <Link href={URL_FACEBOOK} target="_blank">
                 <FaFacebook size={30} className={iconHome} />
               </Link>
-
-              <AiOutlineMail size={30} className={iconHome} />
+              <Link href={`mailto:phanquangkhai07@gmail.com`} target="_blank">
+                <AiOutlineMail size={30} className={iconHome} />
+              </Link>
 
               <Link href={URL_INSTAGRAM} target="_blank">
                 <FaInstagram size={30} className={iconHome} />
@@ -181,7 +199,7 @@ export default function HomePage() {
                 }
               }
               className="flex items-start gap-2">
-              <Button text="Contact me" kind="solid" />
+              <Button text="Contact me" kind="solid" onClick={() => handleChangePage('contact-me')} />
               <Button text="See my CV" kind="outlined" />
             </motion.div>
           </div>
