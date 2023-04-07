@@ -120,15 +120,19 @@ export default function Contact() {
       className="relative z-10 w-full h-full">
       <div className=" relative flex flex-col w-full h-full px-6 py-10 lg:flex-center lg:pt-[8.5rem] lg:pb-10">
         <motion.h1
-          initial={{
-            translateY: '100vh',
-            opacity: 0,
-          }}
-          animate={{
-            translateY: selectedPage === pageId ? 0 : '100vh',
-            opacity,
-            transition: createTransition(selectedPage === pageId ? 0.1 : 1),
-          }}
+          initial={
+            isDesktop && {
+              translateY: '100vh',
+              opacity: 0,
+            }
+          }
+          animate={
+            isDesktop && {
+              translateY: selectedPage === pageId ? 0 : '100vh',
+              opacity,
+              transition: createTransition(selectedPage === pageId ? 0.1 : 1),
+            }
+          }
           className="flex flex-col items-center gap-2 lg:absolute lg:top-[16%] lg:right-[17%] xl:right-[19%] lg:gap-3">
           <span className="text-center text-main text-[1.875rem] font-bold lg:text-[3rem]">Contact</span>
           <span className="font-semibold text-center text-gray-300 lg:text-[1.25rem]">Get In Touch</span>
@@ -137,54 +141,70 @@ export default function Contact() {
         <div className="w-full lg:flex-center">
           <div className="flex flex-col items-center w-full gap-3 py-4 lg:pb-4 lg:pt-0">
             <motion.div
-              initial={{
-                translateY: '100vh',
-                opacity: 0,
-              }}
-              animate={{
-                translateY: selectedPage === pageId ? 0 : '100vh',
-                opacity,
-                transition: createTransition(selectedPage === pageId ? 0.1 : 1),
-              }}
+              initial={
+                isDesktop && {
+                  translateY: '100vh',
+                  opacity: 0,
+                }
+              }
+              animate={
+                isDesktop && {
+                  translateY: selectedPage === pageId ? 0 : '100vh',
+                  opacity,
+                  transition: createTransition(selectedPage === pageId ? 0.1 : 1),
+                }
+              }
               className="max-w-[37.5rem] lg:max-w-[35.5]">
               <Image priority src={'/contact/contact.gif'} alt="Contact" width={600} height={400} />
             </motion.div>
             <motion.p
-              initial={{
-                translateY: '100vh',
-                opacity: 0,
-              }}
-              animate={{
-                translateY: selectedPage === pageId ? 0 : '100vh',
-                opacity,
-                transition: createTransition(selectedPage === pageId ? 0.2 : 1),
-              }}
+              initial={
+                isDesktop && {
+                  translateY: '100vh',
+                  opacity: 0,
+                }
+              }
+              animate={
+                isDesktop && {
+                  translateY: selectedPage === pageId ? 0 : '100vh',
+                  opacity,
+                  transition: createTransition(selectedPage === pageId ? 0.2 : 1),
+                }
+              }
               className="font-medium text-main text-[1.5rem]">
               Reach Out to me!
             </motion.p>
             <motion.p
-              initial={{
-                translateY: '100vh',
-                opacity: 0,
-              }}
-              animate={{
-                translateY: selectedPage === pageId ? 0 : '100vh',
-                opacity,
-                transition: createTransition(selectedPage === pageId ? 0.3 : 1),
-              }}
+              initial={
+                isDesktop && {
+                  translateY: '100vh',
+                  opacity: 0,
+                }
+              }
+              animate={
+                isDesktop && {
+                  translateY: selectedPage === pageId ? 0 : '100vh',
+                  opacity,
+                  transition: createTransition(selectedPage === pageId ? 0.3 : 1),
+                }
+              }
               className="font-medium text-white">
               Just want to say hi? My inbox is open for all.
             </motion.p>
             <motion.div
-              initial={{
-                translateY: '100vh',
-                opacity: 0,
-              }}
-              animate={{
-                translateY: selectedPage === pageId ? 0 : '100vh',
-                opacity,
-                transition: createTransition(selectedPage === pageId ? 0.4 : 1),
-              }}
+              initial={
+                isDesktop && {
+                  translateY: '100vh',
+                  opacity: 0,
+                }
+              }
+              animate={
+                isDesktop && {
+                  translateY: selectedPage === pageId ? 0 : '100vh',
+                  opacity,
+                  transition: createTransition(selectedPage === pageId ? 0.4 : 1),
+                }
+              }
               className="flex gap-3 pb-3 text-white rounded-md">
               <Link href={URL_GITHUB} target="_blank">
                 <FaGithub size={30} className={iconHome} />
@@ -206,15 +226,19 @@ export default function Contact() {
 
           <FormProvider {...methods}>
             <motion.form
-              initial={{
-                translateY: '100vh',
-                opacity: 0,
-              }}
-              animate={{
-                translateY: selectedPage === pageId ? 0 : '100vh',
-                opacity,
-                transition: createTransition(selectedPage === pageId ? 0.2 : 1),
-              }}
+              initial={
+                isDesktop && {
+                  translateY: '100vh',
+                  opacity: 0,
+                }
+              }
+              animate={
+                isDesktop && {
+                  translateY: selectedPage === pageId ? 0 : '100vh',
+                  opacity,
+                  transition: createTransition(selectedPage === pageId ? 0.2 : 1),
+                }
+              }
               noValidate
               onSubmit={methods.handleSubmit(onSubmit)}
               className="flex flex-col items-center w-full gap-3 lg:gap-8 lg:pl-4">
