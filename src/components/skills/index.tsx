@@ -60,7 +60,7 @@ export default function Skill() {
           transition: createTransition(),
         }
       }
-      className="relative pt-[3rem] md:pt-8 px-6 xl:px-16 md:px-8 flex flex-col-reverse md:flex-row items-center md:w-full md:h-full">
+      className="relative pt-[3rem] md:pt-8 px-6 xl:px-16 md:px-8 flex flex-col-reverse md:flex-row items-center w-full h-full">
       <motion.div
         initial={
           isDesktop && {
@@ -220,7 +220,7 @@ export default function Skill() {
         </motion.div>
       </div>
 
-      <div className="absolute z-10 bottom-[-30rem] right-[-30rem] opacity-80 ">
+      <div className="hidden lg:block absolute z-10 bottom-[-30rem] right-[-30rem] opacity-80 ">
         <CircleDecorator />
       </div>
     </motion.section>
