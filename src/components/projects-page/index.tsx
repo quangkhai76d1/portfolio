@@ -1,12 +1,12 @@
-import {ANIM_DURATION, LANDING_PAGE_URL, PORTFOLIO_URL} from '@/config/constants';
-import {useListenPageChange} from '@/hook/useListenPageChange';
-import useMediaQuery, {TABLET_DESKTOP_QUERY} from '@/hook/useMediaQuery';
-import {nextPage, prevPage, selectedPageSelector, setScrolling} from '@/store/globalSlice';
-import {createTransition} from '@/utils/baseAnim';
-import {motion} from 'framer-motion';
-import {useRef} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {AIOZ_NETWORK_URL, DASHBOARD_URL} from '../../config/constants';
+import { ANIM_DURATION, LANDING_PAGE_URL, PORTFOLIO_URL } from '@/config/constants';
+import { useListenPageChange } from '@/hook/useListenPageChange';
+import useMediaQuery, { TABLET_DESKTOP_QUERY } from '@/hook/useMediaQuery';
+import { nextPage, prevPage, selectedPageSelector, setScrolling } from '@/store/globalSlice';
+import { createTransition } from '@/utils/baseAnim';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AIOZ_NETWORK_URL, DASHBOARD_URL } from '../../config/constants';
 import ProjectItem from './project-item';
 
 export interface IProjectsProps {}

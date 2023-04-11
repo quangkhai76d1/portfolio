@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      loading: {
+        DEFAULT: 'loading', // Trạng thái mặc định
+        done: 'hidden', // Khi đã tải xong
+      },
       screens: {
         '2xl': '1316px',
         '3xl': '1390px',

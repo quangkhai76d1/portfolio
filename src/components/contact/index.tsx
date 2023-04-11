@@ -1,4 +1,4 @@
-import Button from '@/common/button';
+import LoadingButton from '@/common/button/button-loading';
 import TextField from '@/common/text-field';
 import {ANIM_DURATION, URL_FACEBOOK, URL_GITHUB, URL_INSTAGRAM, URL_LINKEDIN, USER_ID_KEY} from '@/config/constants';
 import {useListenPageChange} from '@/hook/useListenPageChange';
@@ -10,6 +10,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {motion} from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import {useState} from 'react';
 import {FormProvider, useForm} from 'react-hook-form';
 import {AiOutlineMail} from 'react-icons/ai';
 import {FaFacebook, FaGithub, FaInstagram, FaLinkedin} from 'react-icons/fa';
@@ -62,6 +63,8 @@ export default function Contact() {
   const isDesktop = useMediaQuery(TABLET_DESKTOP_QUERY);
   const opacity = selectedPage === pageId ? 1 : 0;
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useListenPageChange(
     () => {},
     () => {
@@ -86,20 +89,29 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    setIsLoading(true);
+
     const form = {
       from_name: data.name,
       from_email: data.email,
       message: data.message,
     };
 
-    emailjs.send('service_iwinoss', 'template_yi1fe7p', form, USER_ID_KEY).then(
-      () => {
-        toast.success('Thank you for contacting me!');
-      },
-      (error) => {
-        toast.error(error.text);
-      }
-    );
+    emailjs
+      .send('service_iwinoss', 'template_yi1fe7p', form, USER_ID_KEY)
+      .then(
+        () => {
+          toast.success('Thank you for contacting me!');
+        },
+        (error) => {
+          toast.error(error.text);
+        }
+      )
+      .finally(() =>
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000)
+      );
 
     methods.reset();
   };
@@ -246,7 +258,9 @@ export default function Contact() {
                 <TextField key={contact.name} {...contact} />
               ))}
 
-              <Button text="Send message" type="submit" kind="solid" className="max-w-[12.5rem]" />
+              <LoadingButton isLoading={isLoading} onClick={onSubmit}>
+                Send message
+              </LoadingButton>
             </motion.form>
           </FormProvider>
         </div>
