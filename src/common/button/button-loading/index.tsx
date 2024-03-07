@@ -20,7 +20,7 @@ const LoadingButton = ({onClick, isLoading, className, children}: ILoadingButton
       onClick={onClick}
       disabled={isLoading}>
       {isLoading ? (
-        <div role="status">
+        <div role="status" className="flex-center">
           <svg
             aria-hidden="true"
             className="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-white"

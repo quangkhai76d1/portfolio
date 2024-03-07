@@ -20,6 +20,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import * as yup from 'yup';
 import {ContactFormData} from './interface';
 import {emailSchema, messageSchema, nameSchema} from './yupSchema';
+import TextInput from '@/common/input/text-input';
+import {Form} from 'antd';
+import TextAreaInput from '@/common/input/textarea-input';
 
 const ContactData = [
   {
@@ -45,13 +48,11 @@ const ContactData = [
   },
 ];
 
-const ContactSchema = yup
-  .object({
-    email: emailSchema,
-    name: nameSchema,
-    message: messageSchema,
-  })
-  .required();
+const ContactSchema = yup.object().shape({
+  email: emailSchema,
+  name: nameSchema,
+  message: messageSchema,
+});
 
 export default function Contact() {
   const pageId = 4;
@@ -76,16 +77,8 @@ export default function Contact() {
     }
   );
 
-  const methods = useForm<ContactFormData>({
+  const {control, handleSubmit, reset} = useForm({
     resolver: yupResolver(ContactSchema),
-    mode: 'all',
-    reValidateMode: 'onChange',
-    criteriaMode: 'firstError',
-    defaultValues: {
-      email: '',
-      name: '',
-      message: '',
-    },
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -102,6 +95,7 @@ export default function Contact() {
       .then(
         () => {
           toast.success('Thank you for contacting me!');
+          reset();
         },
         (error) => {
           toast.error(error.text);
@@ -112,8 +106,6 @@ export default function Contact() {
           setIsLoading(false);
         }, 1000)
       );
-
-    methods.reset();
   };
 
   return (
@@ -151,7 +143,7 @@ export default function Contact() {
         </motion.h1>
 
         <div className="w-full lg:flex-center">
-          <div className="flex flex-col items-center w-full gap-3 py-4 lg:pb-4 lg:pt-0">
+          <div className="flex flex-col items-center w-full gap-3 px-4 py-4 lg:pb-4 lg:pt-0">
             <motion.div
               initial={
                 isDesktop && {
@@ -167,7 +159,7 @@ export default function Contact() {
                 }
               }
               className="max-w-[37.5rem] lg:max-w-[35.5]">
-              <Image priority src={'/contact/contact.gif'} alt="Contact" width={600} height={400} />
+              <Image priority src={'/contact/contact.gif'} alt="Contact" width={540} height={400} />
             </motion.div>
             <motion.p
               initial={
@@ -183,7 +175,7 @@ export default function Contact() {
                   transition: createTransition(selectedPage === pageId ? 0.2 : 1),
                 }
               }
-              className="font-medium text-main text-[1.5rem]">
+              className="font-medium text-main text-[1.5rem] ">
               Reach Out to me!
             </motion.p>
             <motion.p
@@ -236,33 +228,41 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          <FormProvider {...methods}>
-            <motion.form
-              initial={
-                isDesktop && {
-                  translateY: '100vh',
-                  opacity: 0,
-                }
-              }
-              animate={
-                isDesktop && {
-                  translateY: selectedPage === pageId ? 0 : '100vh',
-                  opacity,
-                  transition: createTransition(selectedPage === pageId ? 0.2 : 1),
-                }
-              }
-              noValidate
-              onSubmit={methods.handleSubmit(onSubmit)}
-              className="flex flex-col items-center w-full gap-3 lg:gap-8 lg:pl-4">
-              {ContactData.map((contact) => (
-                <TextField key={contact.name} {...contact} />
-              ))}
+          <Form className="flex flex-col min-w-[322px] w-full mt-6 px-6" layout="vertical">
+            <TextInput
+              key="email"
+              name="email"
+              control={control as any}
+              placeholder="Email"
+              label="Your Email"
+              type="text"
+              className="!mb-6"
+            />
 
-              <LoadingButton isLoading={isLoading} onClick={onSubmit}>
-                Send message
-              </LoadingButton>
-            </motion.form>
-          </FormProvider>
+            <TextInput
+              key="name"
+              name="name"
+              control={control as any}
+              placeholder="Name"
+              label="Your Name"
+              type="text"
+              className="!mb-6"
+            />
+
+            <TextAreaInput
+              key="message"
+              name="message"
+              control={control as any}
+              placeholder="Message"
+              label="Message"
+              rows={4}
+              className="!mb-6"
+            />
+
+            <LoadingButton isLoading={isLoading} onClick={handleSubmit(onSubmit)}>
+              Send message
+            </LoadingButton>
+          </Form>
         </div>
       </div>
     </motion.section>

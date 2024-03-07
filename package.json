@@ -15,6 +15,7 @@
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "antd": "^5.15.1",
     "classnames": "^2.3.2",
     "css-loader": "^6.7.3",
     "eslint": "8.36.0",
@@ -29,6 +30,7 @@
     "react-simple-typewriter": "^5.0.1",
     "react-toastify": "^9.1.2",
     "sass": "^1.59.3",
+    "swiper": "^11.0.7",
     "typescript": "5.0.2",
     "yup": "^1.0.2"
   },

@@ -8,7 +8,7 @@ import {motion} from 'framer-motion';
 import Image from 'next/image';
 import {useRef} from 'react';
 import {AiTwotoneThunderbolt} from 'react-icons/ai';
-import {FaDatabase, FaGithub, FaGitlab, FaNode, FaSass} from 'react-icons/fa';
+import {FaDatabase, FaGithub, FaGitlab, FaNode, FaSass, FaVuejs} from 'react-icons/fa';
 import {RiReactjsFill} from 'react-icons/ri';
 import {SiJavascript, SiTailwindcss, SiTypescript} from 'react-icons/si';
 import {TbBrandNextjs} from 'react-icons/tb';
@@ -60,7 +60,7 @@ export default function Skill() {
           transition: createTransition(),
         }
       }
-      className="relative pt-[3rem] md:pt-8 px-6 xl:px-16 md:px-8 flex flex-col-reverse md:flex-row items-center w-full h-full">
+      className="relative md:pt-[87px] px-6 xl:px-16 md:px-8 flex flex-col-reverse md:flex-row items-center w-full h-full">
       <motion.div
         initial={
           isDesktop && {
@@ -75,11 +75,11 @@ export default function Skill() {
             transition: createTransition(0.3),
           }
         }
-        className="flex justify-center pt-12 md:flex-1 md:items-center max-w-[37.5rem]">
-        <Image priority src={'/skills/Desk.gif'} quality={100} alt="Image Skills" width={600} height={400} />
+        className="flex justify-center pt-12 px-6 md:flex-1 md:items-center max-w-[37.5rem]">
+        <Image priority src={'/skills/Desk.gif'} quality={100} alt="Image Skills" width={485} height={500} />
       </motion.div>
 
-      <div className="flex flex-col items-center gap-4 text-white md:flex-1 md:p-4">
+      <div className="flex flex-col items-center gap-4 text-white md:flex-1 md:p-6">
         <motion.h1
           initial={
             isDesktop && {
@@ -175,6 +175,10 @@ export default function Skill() {
             <FaGithub color="#a8a8a9" size={50} />
             <span>GitHub</span>
           </span>
+          <span className="flex flex-col items-center gap-2 text-sm text-gray-300 ">
+            <FaVuejs color="#a8a8a9" size={50} />
+            <span>Vuejs</span>
+          </span>
         </motion.div>
 
         <motion.div
@@ -191,7 +195,7 @@ export default function Skill() {
               transition: createTransition(selectedPage >= pageId ? 0.4 : 1),
             }
           }
-          className="space-y-3 text-start">
+          className="space-y-3 text-start max-h-[calc(100vh - 471px)] overflow-y-auto">
           <p className="flex items-center gap-3 ">
             <span className="text-main">
               <AiTwotoneThunderbolt />

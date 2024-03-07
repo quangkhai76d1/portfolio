@@ -52,7 +52,7 @@ export default function HomePage() {
   };
 
   const [text] = useTypewriter({
-    words: [`Hi! I am Quang Khai Frontend Developer`],
+    words: [`Hi! I am Quang Khai Web Developer`],
     loop: true,
     delaySpeed: 2000,
   });
@@ -92,7 +92,7 @@ export default function HomePage() {
         <CircleDecorator scale={scale} blur={!isDesktop ? 8 : 10.2} />
       </div>
       <div className="w-full h-full flex-center">
-        <motion.div className="flex flex-col items-center md:flex-row md:flex-1">
+        <motion.div className="flex flex-col items-center gap-6 md:flex-row md:flex-1">
           <div className="flex flex-col items-center flex-1 gap-3 mb-12 text-white md:gap-4 md:items-start">
             <motion.p
               initial={
@@ -148,8 +148,8 @@ export default function HomePage() {
                 }
               }
               className="text-sm font-medium tracking-wide md:text-lg ">
-              A passionate Front-end Developer 🚀 having an experience of building Web with JavaScript / TypeScript / ReactJs /
-              NextJs / NodeJs and some other cool libraries and frameworks.
+              A passionate Web Developer 🚀 having an experience of building Web with JavaScript / TypeScript / ReactJs / NextJs
+              / NodeJs and some other cool libraries and frameworks.
             </motion.p>
 
             <motion.div
@@ -232,15 +232,7 @@ export default function HomePage() {
               alt="home background"
               width={widthImg}
               height={heightImg}
-              className="z-20"
-            />
-            <div
-              className=" shadow-lg shadow-gray-300 absolute bg-title-home  bottom-0 rounded-tr-full  rounded-tl-full z-10
-             md:w-[21.875rem] md:h-[29rem] w-[15.625rem] h-[22rem]"
-            />
-            <div
-              className="absolute bg-transparent border-gray-300 border shadow-lg shadow-gray-300 bottom-[0.8125rem] right-6  md:bottom-10 rounded-tr-full  rounded-tl-full z-5 md:right-[9rem]
-             md:w-[21.875rem] md:h-[29rem] w-[15.625rem] h-[22rem]"
+              className="absolute z-20"
             />
           </motion.div>
         </motion.div>
