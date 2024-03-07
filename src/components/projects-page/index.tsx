@@ -139,6 +139,9 @@ export default function Projects() {
             1024: {
               slidesPerView: 3,
             },
+            1440: {
+              slidesPerView: 4,
+            },
           }}
           pagination={{clickable: true}}
           navigation
