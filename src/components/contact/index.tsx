@@ -81,7 +81,7 @@ export default function Contact() {
     resolver: yupResolver(ContactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (data: any) => {
     setIsLoading(true);
 
     const form = {
