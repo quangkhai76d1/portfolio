@@ -203,7 +203,7 @@ export default function HomePage() {
               <Button text="Contact me" kind="solid" onClick={() => handleChangePage('contact-me')} />
               <Link
                 target="_blank"
-                href="https://drive.google.com/file/d/1e07VVTwnt4BABlJd8m5ue5CFjIh4QqtK/view?usp=sharing"
+                href="https://drive.google.com/file/d/1bPtzFDZ2kBe9ibngX5b2N7y8kKUmvt6B/view?usp=sharing"
                 className="flex-center gap-5 px-[1.03125rem] py-[0.5625rem] rounded-[0.5625rem] text-base leading-[1.125rem] transition-colors whitespace-nowrap text-secondary-60 border border-secondary-60 hover:border-gray-300 hover:text-gray-300 cursor-pointer shadow-md shadow-secondary-60 hover:shadow-gray-300 lg:text-sm xl:text-base">
                 See my CV
               </Link>
